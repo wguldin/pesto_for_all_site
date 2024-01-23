@@ -249,6 +249,7 @@ a:hover {
 
 .divider hr:first-child {
   height: 1rem;
+  -webkit-mask-image: url("/img/border.svg");
   mask-image: url("/img/border.svg");
   background-color: var(--color-green--light);
   top: 1.3rem;
@@ -259,6 +260,7 @@ a:hover {
 
 .divider hr:last-child {
   height: 1rem;
+  -webkit-mask-image: url("/img/border.svg");
   mask-image: url("/img/border.svg");
   background-color: var(--color-green--dark);
   margin: 0;
@@ -295,6 +297,10 @@ a:hover {
 
 .nav__logo img {
   height: 100%;
+}
+
+.nav__link--show-on-mobile {
+  display: none;
 }
 
 
@@ -404,7 +410,7 @@ a:hover {
   flex-direction: column;
 }
 
-.footer__content ul {
+.footer__links, .footer__copyright {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -422,72 +428,6 @@ a:hover {
 Media Queries
 =========================================================================== 
 */
-
-@media (max-width: 55rem) {
-  body {
-    font-size: 1.25rem;
-  }
-
-  .nav {
-    font-size: 1rem;
-    height: 3rem;
-    align-self: end;
-    padding-right: 4.5rem;
-  }
-
-  .nav__link-list {
-    margin: 0;
-    gap: 1.6rem;
-  }
-
-  .nav__logo {
-    margin-left: 1rem;
-    height: 6rem;
-  }
-
-  h1, h2 {
-    font-size: 2.5rem;
-    text-shadow: -2px 2px 0px var(--color-green--light);
-  }
-
-  .button {
-    margin-bottom: 0;
-  }
-
-  .block, .footer {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-  }
-  
-  .block__image, .footer__logo {
-    position: static;
-    max-width: 320px;
-    margin: 2rem auto 0;
-    order: -1;
-  }
-
-  .footer__logo {
-    margin: 0;
-  }
-
-  .block--intro .block__image {
-    order: 0;
-  }
-
-  .divider {
-    width: 100%;
-    position: relative;
-    top: .4rem;
-  }
-}
-
-@media (max-width: 65rem) {
-  .block__image {
-    margin-top: 2rem;
-    top: 2rem;
-  }
-}
 
 @media (max-width: 90rem) {
   body {
@@ -517,7 +457,7 @@ Media Queries
   }
 
   .block--intro {
-    padding-top: 8rem;
+    padding: 8rem 3rem 0 3rem;
   }
 
   .block__image {
@@ -530,6 +470,95 @@ Media Queries
 
   .block--intro .block__text, .block--dark-green .block__text, .block--dark-green .divider {
     grid-column: 1 / span 6;
+  }
+}
+
+@media (max-width: 65rem) {
+  .block__image {
+    margin-top: 2rem;
+    top: 2rem;
+  }
+}
+
+@media (max-width: 55rem) {
+  body {
+    font-size: 1.25rem;
+  }
+
+  .nav {
+    font-size: 1rem;
+    height: 3rem;
+    align-self: end;
+    padding-right: 0;
+  }
+
+  .nav__link-list {
+    margin: 0;
+    gap: 1.6rem;
+  }
+
+  .nav__logo {
+    margin-left: 1rem;
+    height: 6rem;
+  }
+
+  h1, h2 {
+    font-size: 2.5rem;
+    text-shadow: -2px 2px 0px var(--color-green--light);
+  }
+
+  .button {
+    margin-bottom: 0;
+  }
+
+  .block, .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .block--intro {
+    padding-top: 8rem;
+  }
+  
+  .block__image, .footer__logo {
+    position: static;
+    max-width: 320px;
+    margin: 2rem auto 0;
+    order: -1;
+  }
+
+  .footer__logo {
+    margin: 0 auto;
+    max-width: 70%;
+  }
+
+  .footer__links {
+    margin: 2rem 0;
+  }
+
+  .block--intro .block__image {
+    order: 0;
+  }
+
+  .divider {
+    width: 100%;
+    position: relative;
+    top: 2.4rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .nav__link--hide-on-mobile {
+    display: none;
+  }
+
+  .nav__link--show-on-mobile {
+    display: block;
+  }
+
+  .button {
+    font-size: 1rem;
   }
 }
 
