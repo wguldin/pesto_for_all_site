@@ -1,0 +1,571 @@
+/*! HTML5 Boilerplate v9.0.0-RC1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+:root {
+  --color-text: hsl(80, 48%, 18%);
+  --color-text--light: hsl(70, 9%, 40%);
+  
+  --color-green--dark: hsl(123, 38%, 24%);
+  --color-green--light: hsl(81, 48%, 65%);
+  --color-green--light--hover: hsl(81, 48%, 45%);
+
+  --color-yellow: hsl(61, 100%, 80%);
+
+  --color--yellow--bg: hsl(60, 100%, 90%);
+  --color--dark-green--bg: hsl(123, 37%, 88%);
+  --color--light-green--bg: hsl(80, 100%, 91%);
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: var(--color-text);
+  font-size: 16px;
+  scroll-behavior: smooth !important;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/*  ======================================================================
+ * 
+ *  Site styles
+ *  
+ *
+ *  ======================================================================
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-green--dark);
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+}
+
+h1 {
+  font-size: 4rem;
+  text-shadow: -4px 4px 0px var(--color-green--light);
+  margin: 0;
+}
+
+h1 span {
+  /* line break title correctly */
+  display: block; 
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+body {
+  background-color: var(--color--yellow--bg);
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.9;
+  margin: 0;
+  font-weight: 500;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration-color: rgba(108, 111, 93, .5);
+  transition: text-decoration-color 120ms ease-in;
+}
+
+a:hover {
+  text-decoration-color: var(--color-text);
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 700;
+  padding: .75rem 1.25rem;
+  border-radius: 1rem;
+  background: var(--color-green--light);
+  box-shadow: 0px .25rem .25rem 0px rgba(38, 84, 40, 0.16);
+  margin-bottom: 5rem;
+}
+
+.button:hover {
+  background: var(--color-green--light--hover);
+}
+
+.divider {
+  grid-row: 2;
+  grid-column: 1 / span 5;
+  border: 0;
+  margin: 0;
+  grid-row: 2;
+  align-self: end;
+  position: relative;
+  top: .4rem;
+}
+
+.divider hr:first-child {
+  height: 1rem;
+  mask-image: url("/img/border.svg");
+  background-color: var(--color-green--light);
+  top: 1.3rem;
+  position: relative;
+  margin: 0;
+  border: 0;
+}
+
+.divider hr:last-child {
+  height: 1rem;
+  mask-image: url("/img/border.svg");
+  background-color: var(--color-green--dark);
+  margin: 0;
+  border: 0;
+}
+
+/* Nav styling */
+.nav {
+  background: var(--color-yellow);
+  border-radius: 1.5rem 0 0 1.5rem;
+  display: flex;
+  grid-column: 7 / span 6;
+  margin-right: -4.5rem;
+  grid-row: 1;
+  height: 4rem;
+  box-shadow: -1px 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+
+.nav__link-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0.5rem 0;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.nav__logo {
+  display: block;
+  height: 7rem;
+  margin-top: -1.5rem;
+  margin-left: 2rem;
+}
+
+.nav__logo img {
+  height: 100%;
+}
+
+
+/* Block component styling */
+
+.block {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  padding: 0 4.5rem;
+}
+
+.block__image {
+  width: 100%;
+  grid-column: 2 / span 4;
+  position: relative;
+  top: 4.5rem;
+  margin-top: 4.5rem;
+  grid-row: 1 / span 2;
+  border-radius: .75rem;
+}
+
+.block__text {
+  grid-column: 7 / span 5;
+  grid-row: 1 / span 2;
+}
+
+.block__headline {
+  text-shadow: -3px 3px 0px var(--color-green--light);
+}
+
+/* Farm block */
+.block--green {
+  background: var(--color--light-green--bg);
+}
+
+.block--green .block__image {
+  box-shadow: -.75rem .75rem 0 0 var(--color-green--dark);
+}
+
+.block--green .divider {
+  grid-column: 7 / span 5;
+}
+
+/* Inspiration block */
+.block--dark-green {
+  background: var(--color--dark-green--bg);
+}
+
+.block--dark-green .block__image {
+  grid-column: 8 / span 4;
+  box-shadow: -.75rem .75rem 0 0 var(--color-yellow);
+}
+
+.block--dark-green .block__text, .block--dark-green .divider {
+  grid-column: 2 / span 5;
+}
+
+/* About us block */
+.block--about .block__image {
+  box-shadow: -.75rem .75rem 0 0 var(--color-green--light);
+}
+
+/* Intro block */
+.block--intro {
+  align-items: flex-start;
+  padding: 3rem 4.5rem 0;
+  min-height: 550px;
+}
+
+.block--intro .block__text {
+  grid-column: 1 / span 5;
+}
+
+.block--intro .block__image {
+  box-shadow: -.75rem .75rem 0 0 var(--color-green--light);
+  grid-column: 7 / span 5;
+  grid-row: 1;
+}
+
+/* Block utilities */
+.block__image--no-border {
+  box-shadow: none !important;
+}
+
+/* Footer styling */
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  background-color: var(--color--light-green--bg);
+  padding: 10rem 3rem 3rem 3rem; 
+}
+
+.footer__content {
+  grid-column: 1 / span 6;
+}
+
+.footer__logo {
+  grid-column: 9 / span 3;
+  width: 100%;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links {
+  flex-grow: 1;
+}
+
+.footer__copyright {
+  color: var(--color-text--light);
+}
+
+/* ======================================================================
+Media Queries
+=========================================================================== 
+*/
+
+@media (max-width: 55rem) {
+  body {
+    font-size: 1.25rem;
+  }
+
+  .nav {
+    font-size: 1rem;
+    height: 3rem;
+    align-self: end;
+    padding-right: 4.5rem;
+  }
+
+  .nav__link-list {
+    margin: 0;
+    gap: 1.6rem;
+  }
+
+  .nav__logo {
+    margin-left: 1rem;
+    height: 6rem;
+  }
+
+  h1, h2 {
+    font-size: 2.5rem;
+    text-shadow: -2px 2px 0px var(--color-green--light);
+  }
+
+  .button {
+    margin-bottom: 0;
+  }
+
+  .block, .footer {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  
+  .block__image, .footer__logo {
+    position: static;
+    max-width: 320px;
+    margin: 2rem auto 0;
+    order: -1;
+  }
+
+  .footer__logo {
+    margin: 0;
+  }
+
+  .block--intro .block__image {
+    order: 0;
+  }
+
+  .divider {
+    width: 100%;
+    position: relative;
+    top: .4rem;
+  }
+}
+
+@media (max-width: 65rem) {
+  .block__image {
+    margin-top: 2rem;
+    top: 2rem;
+  }
+}
+
+@media (max-width: 90rem) {
+  body {
+    font-size: 1.3rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    text-shadow: -3px 3px 0px var(--color-green--light);
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    text-shadow: -2px 2px 0px var(--color-green--light);
+  }
+
+  .nav {
+    position: absolute;
+    top: 2rem;
+    right: 4.5rem;
+    padding-right: 3rem;
+    /* get the nav on its own line at this resolution */
+  }
+
+  .block {
+    padding: 3rem 3rem 0 3rem;
+  }
+
+  .block--intro {
+    padding-top: 8rem;
+  }
+
+  .block__image {
+    grid-column: 1 / span 5;
+  }
+
+  .block--dark-green .block__image, .block__text, .block--green .divider, .block--intro .block__image {
+    grid-column: 8 / span 5;
+  }
+
+  .block--intro .block__text, .block--dark-green .block__text, .block--dark-green .divider {
+    grid-column: 1 / span 6;
+  }
+}
+
+@media (min-width: 1800px) {
+  body {
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 2000px) {
+  section {
+    border-radius: 1rem;
+  }
+
+  .footer  {
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .nav {
+    grid-column: 9 / span 4;
+    border-radius: 1.5rem;
+    padding-right: 1.5rem;
+    margin-right: -5.5rem;
+  }
+  
+  .divider {
+    top: .5rem;
+  }
+
+  .divider hr:first-child, .divider hr:last-child  {
+    height: 1.5rem;
+    mask-size: 3.3rem;
+  }
+
+  .divider hr:first-child {
+    top: 1.9rem;
+  }
+}
