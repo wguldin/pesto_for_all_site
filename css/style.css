@@ -462,6 +462,7 @@ Media Queries
 
   .block__image {
     grid-column: 1 / span 5;
+    margin-top: 0;
   }
 
   .block--dark-green .block__image, .block__text, .block--green .divider, .block--intro .block__image {
@@ -475,7 +476,7 @@ Media Queries
 
 @media (max-width: 65rem) {
   .block__image {
-    margin-top: 2rem;
+    margin-top: 0;
     top: 2rem;
   }
 }
@@ -596,5 +597,21 @@ Media Queries
 
   .divider hr:first-child {
     top: 1.9rem;
+  }
+}
+
+@media (min-width: 55rem) {
+  .block--small-image {
+    min-height: 45rem;
+  
+    img {
+      top: 0;
+    }
+  }
+}
+
+@media (min-width: 55rem) {
+  .block--small-image {
+    min-height: 55rem;
   }
 }
