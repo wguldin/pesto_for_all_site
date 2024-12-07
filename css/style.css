@@ -352,11 +352,19 @@ a:hover {
 }
 
 .block--dark-green .block__image {
-  grid-column: 8 / span 4;
   box-shadow: -.75rem .75rem 0 0 var(--color-yellow);
 }
 
 .block--dark-green .block__text, .block--dark-green .divider {
+  grid-column: 2 / span 5;
+}
+
+/* Reverse blocks */
+.block--reverse .block__image  {
+  grid-column: 8 / span 4;
+}
+
+.block--reverse .block__text, .block--reverse .divider {
   grid-column: 2 / span 5;
 }
 
