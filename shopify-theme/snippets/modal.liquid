@@ -1,0 +1,65 @@
+<div class="modal" id="waitlist-modal" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-modal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Join Our Waitlist</h2>
+        <button class="modal__close" aria-label="Close modal" data-modal-close>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__content">
+        <small>We'll be starting to take online orders for our basil pesto soon. Sign up to be the first to know when it's available!</small>
+
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="field">
+            <label class="field__label" for="NewsletterForm--modal">
+              Email address
+            </label>
+            <input
+              id="NewsletterForm--modal"
+              type="email"
+              name="contact[email]"
+              class="field__input"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="Newsletter-error--modal"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="Newsletter-success--modal"
+              {% endif %}
+              placeholder="Enter your email"
+              required
+            >
+          </div>
+          {%- if form.errors -%}
+            <small class="newsletter-form__message form__message" id="Newsletter-error--modal">
+              <svg aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-error" />
+              </svg>
+              {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+            </small>
+          {%- endif -%}
+          {%- if form.posted_successfully? -%}
+            <h3 class="newsletter-form__message newsletter-form__message--success form__message" id="Newsletter-success--modal" tabindex="-1" autofocus>
+              <svg aria-hidden="true" focusable="false" role="presentation">
+                <use href="#icon-success" />
+              </svg>
+              {{ 'newsletter.success' | t }}
+            </h3>
+          {%- endif -%}
+          <button type="submit" class="button newsletter-form__button" name="commit" id="Subscribe">
+            Subscribe
+          </button>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+</div> 
