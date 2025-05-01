@@ -1,17 +1,9 @@
 <div class="modal" id="waitlist-modal" aria-hidden="true">
   <div class="modal__overlay" tabindex="-1" data-modal-close>
     <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal__header">
-        <h2 class="modal__title" id="modal-title">Join Our Waitlist</h2>
-        <button class="modal__close" aria-label="Close modal" data-modal-close>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
+      <h2 class="modal__title" id="modal-title">Join Our Waitlist</h2>
       <div class="modal__content">
-        <small>We'll be starting to take online orders for our basil pesto soon. Sign up to be the first to know when it's available!</small>
-
+        <div>Soon, we'll be <strong>shipping our pesto nationwide</strong>! Sign up now to know when it's ready to order!</div>
         {% form 'customer', class: 'newsletter-form' %}
           <input type="hidden" name="contact[tags]" value="newsletter">
           <div class="field">
@@ -56,10 +48,13 @@
             </h3>
           {%- endif -%}
           <button type="submit" class="button newsletter-form__button" name="commit" id="Subscribe">
-            Subscribe
+            Sign up
           </button>
         {% endform %}
       </div>
     </div>
+    <button class="modal__close" aria-label="Close modal" data-modal-close>
+      &times;
+    </button>
   </div>
 </div> 

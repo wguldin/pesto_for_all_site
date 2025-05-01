@@ -56,4 +56,40 @@ class Modal {
 // Initialize modal when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   const waitlistModal = new Modal('waitlist-modal');
-}); 
+});
+
+// Mobile menu toggle
+const hamburger = document.querySelector('.nav__hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+const closeBtn = document.querySelector('.mobile-menu__close');
+
+function openMobileMenu() {
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  hamburger.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+  // Focus first link
+  const firstLink = mobileMenu.querySelector('a');
+  if (firstLink) firstLink.focus();
+}
+
+function closeMobileMenu() {
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  hamburger.focus();
+}
+
+if (hamburger && mobileMenu && closeBtn) {
+  hamburger.addEventListener('click', openMobileMenu);
+  closeBtn.addEventListener('click', closeMobileMenu);
+  // ESC to close
+  document.addEventListener('keydown', function(e) {
+    if (mobileMenu.getAttribute('aria-hidden') === 'false' && e.key === 'Escape') {
+      closeMobileMenu();
+    }
+  });
+  // Click outside menu to close
+  mobileMenu.addEventListener('click', function(e) {
+    if (e.target === mobileMenu) closeMobileMenu();
+  });
+} 

@@ -11,10 +11,16 @@
   <div class="header">
     <nav class="nav">
       <ul class="nav__link-list">
-        <li class="nav__link"><a href="/collections/all">Shop</a></li>
-        <li class="nav__link nav__link--hide-on-mobile"><a href="/#our-farm">Our farm</a></li>
-        <li class="nav__link nav__link--hide-on-mobile"><a href="/#our-inspiration">Our inspiration</a></li>
+        <li class="nav__link"><a class="fancy-link" href="/pages/where-to-find-us">Where to Find Us</a></li>
+        <li class="nav__link"><a class="fancy-link" href="/#about-us">About Us</a></li>
+        <li class="nav__link"><a class="fancy-link" href="/#our-farm">Our farm</a></li>
+        <li class="nav__link"><a class="fancy-link" href="/#our-inspiration">Our inspiration</a></li>
       </ul>
+      <button class="nav__hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
       <a class="nav__logo" href="/">
         <img
           src="{{ 'logo.svg' | asset_url }}"
@@ -24,6 +30,15 @@
         >
       </a>
     </nav>
+    <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+      <button class="mobile-menu__close" aria-label="Close menu">&times;</button>
+      <ul class="mobile-menu__links">
+        <li><a href="/pages/where-to-find-us">Where to Find Us</a></li>
+        <li><a href="/#about-us">About Us</a></li>
+        <li><a href="/#our-farm">Our farm</a></li>
+        <li><a href="/#our-inspiration">Our inspiration</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 
