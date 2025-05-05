@@ -67,6 +67,7 @@ function openMobileMenu() {
   mobileMenu.setAttribute('aria-hidden', 'false');
   hamburger.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
+  document.querySelector('.header-wrapper').classList.add('mobile-menu-open');
   // Focus first link
   const firstLink = mobileMenu.querySelector('a');
   if (firstLink) firstLink.focus();
@@ -76,6 +77,7 @@ function closeMobileMenu() {
   mobileMenu.setAttribute('aria-hidden', 'true');
   hamburger.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
+  document.querySelector('.header-wrapper').classList.remove('mobile-menu-open');
   hamburger.focus();
 }
 
@@ -91,5 +93,18 @@ if (hamburger && mobileMenu && closeBtn) {
   // Click outside menu to close
   mobileMenu.addEventListener('click', function(e) {
     if (e.target === mobileMenu) closeMobileMenu();
+  });
+
+  // Close menu when clicking on any link
+  const menuLinks = mobileMenu.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close menu and restore scrolling on window resize
+  window.addEventListener('resize', function() {
+    if (mobileMenu.getAttribute('aria-hidden') === 'false') {
+      closeMobileMenu();
+    }
   });
 } 
